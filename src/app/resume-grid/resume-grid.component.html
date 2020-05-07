@@ -1,0 +1,7 @@
+<div class="grid overflow-x">
+  <!-- 追加ボタン -->
+  <app-icon-button [iconClass]="iconConstants.plus" (onClick)="addResumeBoard($event)" [tooltipText]="'追加'"></app-icon-button>
+  <ng-container *ngFor="let resume of resumes">
+    <app-resume-board [resume]="resume"></app-resume-board>
+  </ng-container>
+</div>

@@ -1,7 +1,6 @@
-:host {
-  height: 100%;
-  width: 100%;
+$main-height: calc(100vh * 0.081 + 100vh * 0.051);
 
+:host {
   display: flex;
   flex-direction: column;
 }
@@ -9,6 +8,6 @@
 .main-frame {
   display: flex;
 
-  height: 100%;
-  max-height: 100%;
+  height: calc(100vh - #{$main-height});
+  max-height: calc(100vh - #{$main-height});
 }

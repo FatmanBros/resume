@@ -6,5 +6,8 @@ export class IconConstants {
   public static user = "fas fa-user-circle";
 
   /** 設定アイコン */
-  public static setting = "fas fa-cog"
+  public static setting = "fas fa-cog";
+
+  /** プラスアイコン */
+  public static plus = "fas fa-plus-circle";
 }

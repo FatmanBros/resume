@@ -11,11 +11,16 @@ import { FooterComponent } from './common/footer/footer.component';
 import { IconComponent } from './control/icon/icon.component';
 import { IconButtonComponent } from './control/icon-button/icon-button.component';
 import { IconDropdownComponent } from './control/icon-dropdown/icon-dropdown.component';
+import { ResumeBoardComponent } from './resume-board/resume-board.component';
+import { MatTooltipModule } from '@angular/material/tooltip'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResumeGridComponent } from './resume-grid/resume-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResumeComponent,
+    ResumeBoardComponent,
     OutFrameComponent,
     HeaderComponent,
     MenuComponent,
@@ -23,10 +28,13 @@ import { IconDropdownComponent } from './control/icon-dropdown/icon-dropdown.com
     IconComponent,
     IconButtonComponent,
     IconDropdownComponent,
+    ResumeGridComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTooltipModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

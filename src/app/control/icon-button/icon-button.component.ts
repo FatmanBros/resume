@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
@@ -17,14 +17,15 @@ export class IconButtonComponent extends IconComponent {
   ngOnInit(): void {
   }
 
-  public clickEvent: EventEmitter<null> = new EventEmitter<null>();
+  @Output()
+  public onClick: EventEmitter<null> = new EventEmitter<null>();
 
   /**
    * アイコンクリック
    * 
    * @param event 
    */
-  public onClick(event) {
-    this.clickEvent.emit();
+  public click(event) {
+    this.onClick.emit();
   }
 }
