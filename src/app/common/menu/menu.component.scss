@@ -2,6 +2,8 @@ $width: 8%;
 :host {
   width: $width;
   min-width: $width;
-  height: 100%;
+  height: auto;
   max-height: 100%;
+
+  border-right: solid 1px #fff;
 }

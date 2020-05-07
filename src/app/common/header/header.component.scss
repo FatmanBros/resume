@@ -1,10 +1,22 @@
-$height: 5%;
+$height: 8%;
 :host {
   height: $height;
   min-height: $height;
   max-height: $height;
+
+  background-color: rgb(194, 206, 212);
+  border-bottom: solid 1px #fff;
+}
+
+.title-logo {
+  font-family: cursive;
+  font-size: 2rem;
 }
 
 .content-frame {
+  padding-left: 0.5rem;
+  align-items: center;
+  
+  height: 100%;
   display: flex;
 }

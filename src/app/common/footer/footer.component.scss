@@ -2,4 +2,6 @@ $height: 5%;
 :host {
   min-height: $height;
   max-height: $height;
+
+  border-top: solid 1px #fff;
 }

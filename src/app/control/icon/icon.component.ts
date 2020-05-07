@@ -11,9 +11,6 @@ export class IconComponent implements OnInit {
   public iconClass: string;
 
   @Input()
-  public isButton:boolean = false;
-
-  @Input()
   public tooltipText: string;
 
   constructor() { }
