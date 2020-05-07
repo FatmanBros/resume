@@ -1,7 +1,27 @@
-.button-icon {
-  cursor: pointer;
+$small: 1rem;
+.icon-frame {
+  padding: 0.5rem;
 }
 
-.button-icon:hover {
+/* サイズ制御 */
+.small {
+  width: $small;
+  height: $small;
+}
 
+$middle: 2rem;
+.middle {
+  width: $middle;
+  height: $middle;
+}
+
+$large: 3rem;
+.large {
+  width: $large;
+  height: $large;
+}
+
+svg {
+  width: 100% !important;
+  height: 100% !important;
 }

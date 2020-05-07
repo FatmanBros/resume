@@ -1,0 +1,14 @@
+$transitionTime: 0.1s;
+
+.button-icon {
+  cursor: pointer;
+  color: #000;
+
+  transition: $transitionTime;
+}
+
+.button-icon:hover {
+  color: #555;
+
+  transition: $transitionTime;
+}

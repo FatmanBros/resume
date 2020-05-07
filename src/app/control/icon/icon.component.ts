@@ -13,9 +13,13 @@ export class IconComponent implements OnInit {
   @Input()
   public tooltipText: string;
 
+  @Input()
+  public size: 'small' | 'middle' | 'large' = 'small';
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

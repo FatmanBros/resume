@@ -4,15 +4,12 @@
     <div class="title-logo">ReSUME</div>
   </div>
   <!-- タイトル -->
-  <div class="center-box">
+  <div class="flex-one">
 
   </div>
 
-  <!-- カスタム -->
-  <div>
-    <!-- ユーザーアイコン -->
-    <app-icon-button [iconClass]="userIcon"></app-icon-button>
-    <!-- ユーザーアイコン -->
-    <app-icon-button [iconClass]="settingIcon"></app-icon-button>
-  </div>
+  <!-- ユーザーアイコン -->
+  <app-icon-button [iconClass]="userIcon" [size]="'large'"></app-icon-button>
+  <!-- 設定 -->
+  <app-icon-button [iconClass]="settingIcon" [size]="'large'"></app-icon-button>
 </div>
