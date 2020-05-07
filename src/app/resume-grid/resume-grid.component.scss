@@ -2,6 +2,9 @@ $min-height: 10rem;
 .grid {
   min-height: $min-height;
 }
+.grid-header {
+  background-color: darken(rgb(245, 244, 231), $amount: 10%);
+}
 
 $border-color: #999;
 $header-grid-style: solid 1px $border-color;
@@ -9,24 +12,20 @@ $header-grid-style: solid 1px $border-color;
 $cell-width: 2%;
 .cell {
   font-size: 0.7rem;
+  min-width: $cell-width;
+  max-width: $cell-width;
 }
 .cell.year {
   min-width: calc(#{$cell-width} + 1px);
   max-width: calc(#{$cell-width} + 1px);
 }
-.cell.month {
-  min-width: $cell-width;
-  max-width: $cell-width;
-}
 .month {
-  border-left: dashed 1px $border-color;
+  border-left: solid 1px lighten($border-color, 20%);
+}
+.grid-body {
+  height: 100%;
+  min-height: 4rem;
 }
 .january {
   border-left: $header-grid-style;
-}
-.year:first-child {
-  border-left: $header-grid-style;
-}
-.year:last-child {
-  border-right: $header-grid-style;
 }

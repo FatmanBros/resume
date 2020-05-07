@@ -10,11 +10,19 @@ import { DateUtility } from '../utility/date-utility'
 })
 export class ResumeGridComponent extends BaseComponent {
 
+  /**
+   * 期間 From <br>
+   * デフォルト 7年前
+   */
   @Input()
   public termFrom: Date = DateUtility.getSubYearDate(7);
 
+  /**
+   * 期間 To <br>
+   * デフォルト 半年先
+   */
   @Input()
-  public termTo: Date = new Date();
+  public termTo: Date = DateUtility.addMonths(new Date(), 6);
 
   public term: { year: string, month: string }[];
 
