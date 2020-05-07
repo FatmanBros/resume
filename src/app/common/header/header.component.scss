@@ -1,0 +1,10 @@
+$height: 5%;
+:host {
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+}
+
+.content-frame {
+  display: flex;
+}

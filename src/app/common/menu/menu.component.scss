@@ -1,0 +1,7 @@
+$width: 8%;
+:host {
+  width: $width;
+  min-width: $width;
+  height: 100%;
+  max-height: 100%;
+}
