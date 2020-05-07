@@ -4,8 +4,8 @@
     <app-icon-button [iconClass]="iconConstants.plus" (onClick)="addResumeBoard($event)" [tooltipText]="'追加'">
     </app-icon-button>
     <div class="flex-h">
-      <!-- 年 -->
-      <ng-container *ngFor="let month of term; let i = index;">
+      <ng-container *ngFor="let month of month; let i = index;">
+        <!-- 年 -->
         <div class="cell year">
           <ng-container *ngIf="i === 0 || month.month === '1'">
             <div [ngClass]="{ 'january': month.month === '1'}">
@@ -13,18 +13,14 @@
             </div>
           </ng-container>
         </div>
-      </ng-container>
-    </div>
-    <div class="flex-h">
-      <!-- 月 -->
-      <ng-container *ngFor="let month of term">
+        <!-- 月 -->
         <div class="cell month" [ngClass]="{ 'january': month.month === '1'}">{{month.month}}</div>
       </ng-container>
     </div>
   </div>
   <div class="grid-body">
     <!-- コンテンツグリッド -->
-    <ng-container *ngFor="let month of term; let i = index;">
+    <ng-container *ngFor="let month of month; let i = index;">
       <div class="cell body" [ngClass]="{ 'january': month.month === '1'}"></div>
     </ng-container>
   </div>

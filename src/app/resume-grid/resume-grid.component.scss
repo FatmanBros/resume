@@ -1,15 +1,12 @@
-$min-height: 10rem;
-.grid {
-  min-height: $min-height;
-}
+$base-color: rgb(215, 228, 212);
 .grid-header {
-  background-color: darken(rgb(245, 244, 231), $amount: 10%);
+  background-color: darken($base-color, $amount: 10%);
 }
 
 $border-color: #999;
 $header-grid-style: solid 1px $border-color;
 
-$cell-width: 2%;
+$cell-width: 19px;
 .cell {
   font-size: 0.7rem;
   min-width: $cell-width;
@@ -22,9 +19,13 @@ $cell-width: 2%;
 .month {
   border-left: solid 1px lighten($border-color, 20%);
 }
+$min-height: 4rem;
 .grid-body {
-  height: 100%;
-  min-height: 4rem;
+  min-height: $min-height;
+  background-color: lighten($base-color, 5%);
+}
+.cell.body {
+  border-left: solid 1px lighten($border-color, 20%);
 }
 .january {
   border-left: $header-grid-style;
