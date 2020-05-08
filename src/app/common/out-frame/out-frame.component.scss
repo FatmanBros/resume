@@ -1,5 +1,9 @@
-$main-height: calc(100vh * 0.081 + 100vh * 0.051);
-$main-width: calc(100vh * 0.051);
+$header-height: calc(100vh * 0.08);
+$footer-height: calc(100vh * 0.05);
+$menu-width: calc(100vw * 0.05);
+
+$main-height: calc(100vh - #{$header-height});
+$main-width: calc(100vw - #{$menu-width});
 
 :host {
   display: flex;
@@ -9,11 +13,11 @@ $main-width: calc(100vh * 0.051);
 .main-frame {
   display: flex;
 
-  height: calc(100vh - #{$main-height});
-  max-height: calc(100vh - #{$main-height});
+  height: $main-height;
+  max-height: $main-height;
 }
 
 .main-content {
-  width: calc(100vw - #{$main-width});
-  max-width: calc(100vw - #{$main-width});
+  width: $main-width;
+  max-width: $main-width;
 }

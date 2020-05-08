@@ -11,6 +11,9 @@ $header-grid-style: solid 1px $border-color;
 .year {
   border-left: $header-grid-style !important;
 }
+.month:first-child {
+  border-left: $header-grid-style !important;
+}
 .january {
   border-left: $header-grid-style !important;
 }

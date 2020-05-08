@@ -9,7 +9,7 @@
   <ul class="flex-h body">
     <li *ngFor="let month of months; let i = index;">
       <!-- 月 -->
-      <div class="cell" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="defaultCellStyle">
+      <div class="cell month" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="defaultCellStyle">
         {{month.month}}</div>
       <!-- グリッド -->
       <div class="cell" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="defaultCellStyle"></div>
