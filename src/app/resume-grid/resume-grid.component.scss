@@ -18,5 +18,14 @@ $header-grid-style: solid 1px $border-color;
   border-left: $header-grid-style !important;
 }
 .body {
-  height: 5rem;
+  min-height: 5rem;
+}
+
+$box-color: #ffbda9;
+.resume-box {
+  cursor: grab;
+  
+  border-radius: 3px;
+  background-color: rgba($color: $box-color, $alpha: 0.7);
+  border: solid 2px rgba($color: $box-color, $alpha: 0.2);;
 }

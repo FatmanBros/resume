@@ -1,4 +1,4 @@
-<div class="grid overflow-x">
+<div class="grid overflow-x relative">
   <!-- 追加ボタン -->
   <app-icon-button [iconClass]="iconConstants.plus" (onClick)="addResumeBoard($event)" [tooltipText]="'追加'">
   </app-icon-button>
@@ -6,13 +6,16 @@
   <ul class="flex-h">
     <li class="cell year" *ngFor="let year of years; let i = index;" [ngStyle]="year.style">{{year.year}}</li>
   </ul>
-  <ul class="flex-h body">
+  <ul class="flex-h">
     <li *ngFor="let month of months; let i = index;">
       <!-- 月 -->
-      <div class="cell month" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="defaultCellStyle">
+      <div class="cell month" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="styleConst.defaultMonthHeaderStyle">
         {{month.month}}</div>
       <!-- グリッド -->
-      <div class="cell" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="defaultCellStyle"></div>
+      <div class="cell body" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="styleConst.defaultCellStyle"></div>
     </li>
   </ul>
+  <div *ngFor="let disp of displayResumes" class="resume-box absolute" [ngStyle]="disp.style">
+    <div>{{disp.title}}</div>
+  </div>
 </div>

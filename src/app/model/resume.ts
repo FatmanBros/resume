@@ -1,4 +1,5 @@
 import { Experiences } from './experiences';
+import { DateUtility } from '../utility/date-utility';
 
 export class Resume {
 
@@ -7,7 +8,9 @@ export class Resume {
     this.summary = "";
     this.details = "";
     this.termFrom = new Date();
-    this.termTo = new Date();
+    this.termFrom.setDate(1);
+    this.termTo = DateUtility.addMonths(new Date(), 1);
+    this.termTo.setDate(1);
     this.experiences = new Experiences();
   }
 
@@ -27,12 +30,12 @@ export class Resume {
   public details: string;
 
   /**
-   * 開始　年月
+   * 開始　年月<br>
    */
   public termFrom: Date;
 
   /**
-   * 終了　年月
+   * 終了　年月<br>
    */
   public termTo: Date;
 

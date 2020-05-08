@@ -2,6 +2,8 @@ import { Component, OnInit, Injector, Input, ElementRef } from '@angular/core';
 import { BaseComponent } from '../common/base/base.component';
 import { Resume } from '../model/resume';
 import { DateUtility } from '../utility/date-utility'
+import { ObjectUtility } from '../utility/object-utility';
+import { GridStyleConstants } from '../constants/grid-style-constants';
 
 @Component({
   selector: 'app-resume-grid',
@@ -12,10 +14,10 @@ export class ResumeGridComponent extends BaseComponent {
 
   /**
    * 期間 From <br>
-   * デフォルト 7年前
+   * デフォルト 10年前
    */
   @Input()
-  public termFrom: Date = DateUtility.getSubYearDate(7);
+  public termFrom: Date = DateUtility.getSubYearDate(10);
 
   /**
    * 期間 To <br>
@@ -39,19 +41,21 @@ export class ResumeGridComponent extends BaseComponent {
    */
   public months: { year: string, month: string, position: number }[];
 
+  /**
+   * レジュメの表示位置設定
+   */
+  public displayResumes: { resume: Resume, style: { [key: string]: string } }[];
+
+
   // TODO: 履歴のサーバー取得処理
   public resumes: Resume[] = [];
 
-  /**
-   * セルのサイズ
-   */
-  public cellWidth = 19;
 
-  public defaultCellStyle = {
-    'width': this.cellWidth + 'px',
-    'min-width': this.cellWidth + 'px',
-    'max-width': this.cellWidth + 'px',
-  }
+  /**
+   * グリッドスタイル用定数
+   */
+  public styleConst = GridStyleConstants;
+
 
   constructor(
     injector: Injector,
@@ -92,12 +96,12 @@ export class ResumeGridComponent extends BaseComponent {
 
     // 年リストのスタイル作成
     this.years.forEach(year => {
-      let width = year.count * (this.cellWidth + 1) - 1 + 'px';
-      year.style = {
+      let width = year.count * (this.styleConst.cellWidth + 1) - 1 + 'px';
+      year.style = Object.assign(ObjectUtility.clone(this.styleConst.defaultYearStyle), {
         'width': width,
         'min-width': width,
         'max-width': width,
-      }
+      })
     });
   }
 
@@ -114,7 +118,7 @@ export class ResumeGridComponent extends BaseComponent {
       this.months.push({
         year: '' + d.getFullYear(),
         month: '' + (d.getMonth() + 1),
-        position: this.cellWidth * i,
+        position: (this.styleConst.cellWidth + 1) * i++,
       })
       d = DateUtility.addMonths(d, 1);
     }
@@ -125,5 +129,52 @@ export class ResumeGridComponent extends BaseComponent {
    */
   public addResumeBoard($event) {
     this.resumes.push(new Resume());
+    this.resetResumes();
+  }
+
+  /**
+   * 履歴のグリッド表示位置を設定
+   */
+  public resetResumes() {
+    this.displayResumes = [];
+    this.resumes.forEach(resume => {
+      // 側作成
+      let res = {
+        resume: resume,
+        style: ObjectUtility.clone(this.styleConst.defaultResumeStyle),
+      }
+
+      // 開始位置を設定
+      let x;
+      this.months.forEach(month => {
+        if (month.year !== '' + resume.termFrom.getFullYear()) {
+          return;
+        }
+        if (month.month !== resume.termFrom.getMonth() + 1 + '') {
+          return;
+        }
+        x = month.position;
+      });
+      res.style = Object.assign(res.style, { left: x + 'px' });
+
+      // 幅を設定
+      let w = (DateUtility.monthDiff(resume.termTo, resume.termFrom) - 1) * this.styleConst.cellWidth - 2 + 'px';
+      res.style = Object.assign(res.style, {
+        width: w,
+        'min-width': w,
+        'max-width': w,
+      });
+
+      // 開始高さと高さを設定
+      let heightpx = this.styleConst.monthHeight + 'px';
+      res.style = Object.assign(res.style, {
+        top: this.styleConst.defaultTop + 'px',
+        height: heightpx,
+        'min-height': heightpx,
+        'max-height': heightpx,
+      });
+
+      this.displayResumes.push(res);
+    })
   }
 }
