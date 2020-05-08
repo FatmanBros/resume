@@ -1,11 +1,23 @@
-<div class="title">
-  
-</div>
-<div class="flex-h">
-  <div>
+<div *ngIf="resume" class="resume-frame flex-one flex-v">
+  <!-- 期間 -->
+  <div class="term">
+    <span>参画期間：</span>
+  </div>
+  <div class="title">
+    <input [(ngModel)]="resume.title" />
+  </div>
+  <div class="flex-h">
+    <div>
 
+    </div>
+    <div>
+
+    </div>
   </div>
-  <div>
-    
-  </div>
+</div>
+<div *ngIf="resume">
+
+</div>
+<div *ngIf="!resume" class="not-selected">
+  NOT SELECTED RESUME !!
 </div>

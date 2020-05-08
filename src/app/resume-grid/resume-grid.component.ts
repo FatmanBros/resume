@@ -177,4 +177,19 @@ export class ResumeGridComponent extends BaseComponent {
       this.displayResumes.push(res);
     })
   }
+
+
+  public selectedResume: Resume;
+  /**
+   * 履歴の選択
+   * 
+   * @param event 
+   */
+  public selectResume(resume) {
+    // 選択中の履歴を修正
+    this.resumeService.setResume(resume);
+
+    // 選択中の履歴を反映
+    this.selectedResume = resume;
+  }
 }

@@ -9,13 +9,16 @@
   <ul class="flex-h">
     <li *ngFor="let month of months; let i = index;">
       <!-- 月 -->
-      <div class="cell month" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="styleConst.defaultMonthHeaderStyle">
+      <div class="cell month" [ngClass]="{ 'january': month.month === '1'}"
+        [ngStyle]="styleConst.defaultMonthHeaderStyle">
         {{month.month}}</div>
       <!-- グリッド -->
-      <div class="cell body" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="styleConst.defaultCellStyle"></div>
+      <div class="cell body" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="styleConst.defaultCellStyle">
+      </div>
     </li>
   </ul>
-  <div *ngFor="let disp of displayResumes" class="resume-box absolute" [ngStyle]="disp.style">
+  <div *ngFor="let disp of displayResumes" class="resume-box absolute" [ngStyle]="disp.style"
+    [ngClass]="{'selected': disp.resume === selectedResume}" (mouseenter)="selectResume(disp.resume)">
     <div>{{disp.title}}</div>
   </div>
 </div>

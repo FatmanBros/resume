@@ -29,3 +29,9 @@ $box-color: #ffbda9;
   background-color: rgba($color: $box-color, $alpha: 0.7);
   border: solid 2px rgba($color: $box-color, $alpha: 0.2);;
 }
+
+.resume-box.selected {
+  transition: 0.5s;
+  background-color: rgba($color: $box-color, $alpha: 0.9);
+  border: solid 2px rgba($color: $box-color, $alpha: 0.3);;
+}

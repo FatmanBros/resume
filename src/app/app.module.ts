@@ -15,6 +15,8 @@ import { ResumeBoardComponent } from './resume-board/resume-board.component';
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResumeGridComponent } from './resume-grid/resume-grid.component';
+import { FormsModule } from '@angular/forms';
+import { DateComponent } from './control/date/date.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { ResumeGridComponent } from './resume-grid/resume-grid.component';
     IconButtonComponent,
     IconDropdownComponent,
     ResumeGridComponent,
+    DateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatTooltipModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
