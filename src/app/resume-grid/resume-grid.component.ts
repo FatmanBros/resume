@@ -32,12 +32,12 @@ export class ResumeGridComponent extends BaseComponent {
   /**
    * 年リスト
    */
-  public years: { year: string, count: number }[];
+  public years: { year: string, count: number, style: { [key: string]: string } }[];
 
   /**
    * 月リスト
    */
-  public month: { year: string, month: string, position: number }[];
+  public months: { year: string, month: string, position: number }[];
 
   // TODO: 履歴のサーバー取得処理
   public resumes: Resume[] = [];
@@ -45,7 +45,13 @@ export class ResumeGridComponent extends BaseComponent {
   /**
    * セルのサイズ
    */
-  public cellWidth: 19;
+  public cellWidth = 19;
+
+  public defaultCellStyle = {
+    'width': this.cellWidth + 'px',
+    'min-width': this.cellWidth + 'px',
+    'max-width': this.cellWidth + 'px',
+  }
 
   constructor(
     injector: Injector,
@@ -83,6 +89,16 @@ export class ResumeGridComponent extends BaseComponent {
       obj.count += 1;
       d = DateUtility.addMonths(d, 1);
     }
+
+    // 年リストのスタイル作成
+    this.years.forEach(year => {
+      let width = year.count * (this.cellWidth + 1) - 1 + 'px';
+      year.style = {
+        'width': width,
+        'min-width': width,
+        'max-width': width,
+      }
+    });
   }
 
   /**
@@ -92,10 +108,10 @@ export class ResumeGridComponent extends BaseComponent {
     let d = new Date(this.termFrom);
     let end = DateUtility.getYearMonth(this.termTo);
 
-    this.month = [];
+    this.months = [];
     let i = 0;
     while (DateUtility.getYearMonth(d) !== end) {
-      this.month.push({
+      this.months.push({
         year: '' + d.getFullYear(),
         month: '' + (d.getMonth() + 1),
         position: this.cellWidth * i,

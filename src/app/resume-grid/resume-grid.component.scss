@@ -1,32 +1,19 @@
-$base-color: rgb(215, 228, 212);
-.grid-header {
-  background-color: darken($base-color, $amount: 10%);
-}
-
-$border-color: #999;
+$border-color: #bdbdbd;
 $header-grid-style: solid 1px $border-color;
 
-$cell-width: 19px;
 .cell {
-  font-size: 0.7rem;
-  min-width: $cell-width;
-  max-width: $cell-width;
-}
-.cell.year {
-  min-width: calc(#{$cell-width} + 1px);
-  max-width: calc(#{$cell-width} + 1px);
-}
-.month {
+  font-size: 0.7rem !important;
   border-left: solid 1px lighten($border-color, 20%);
+  border-bottom: solid 1px $border-color;
+  background-color: #f6f6f6;
+  text-align: center;
 }
-$min-height: 4rem;
-.grid-body {
-  min-height: $min-height;
-  background-color: lighten($base-color, 5%);
-}
-.cell.body {
-  border-left: solid 1px lighten($border-color, 20%);
+.year {
+  border-left: $header-grid-style !important;
 }
 .january {
-  border-left: $header-grid-style;
+  border-left: $header-grid-style !important;
+}
+.body {
+  height: 5rem;
 }

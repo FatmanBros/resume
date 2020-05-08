@@ -12,6 +12,13 @@ body {
   background-color: rgb(235, 240, 243);
 }
 
+ul, li {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
 .flex-h {
   display: flex;
 }

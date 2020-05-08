@@ -1,27 +1,18 @@
 <div class="grid overflow-x">
-  <div class="grid-header">
-    <!-- 追加ボタン -->
-    <app-icon-button [iconClass]="iconConstants.plus" (onClick)="addResumeBoard($event)" [tooltipText]="'追加'">
-    </app-icon-button>
-    <div class="flex-h">
-      <ng-container *ngFor="let month of month; let i = index;">
-        <!-- 年 -->
-        <div class="cell year">
-          <ng-container *ngIf="i === 0 || month.month === '1'">
-            <div [ngClass]="{ 'january': month.month === '1'}">
-              {{month.year}}
-            </div>
-          </ng-container>
-        </div>
-        <!-- 月 -->
-        <div class="cell month" [ngClass]="{ 'january': month.month === '1'}">{{month.month}}</div>
-      </ng-container>
-    </div>
-  </div>
-  <div class="grid-body">
-    <!-- コンテンツグリッド -->
-    <ng-container *ngFor="let month of month; let i = index;">
-      <div class="cell body" [ngClass]="{ 'january': month.month === '1'}"></div>
-    </ng-container>
-  </div>
+  <!-- 追加ボタン -->
+  <app-icon-button [iconClass]="iconConstants.plus" (onClick)="addResumeBoard($event)" [tooltipText]="'追加'">
+  </app-icon-button>
+  <!-- 年ヘッダ -->
+  <ul class="flex-h">
+    <li class="cell year" *ngFor="let year of years; let i = index;" [ngStyle]="year.style">{{year.year}}</li>
+  </ul>
+  <ul class="flex-h body">
+    <li *ngFor="let month of months; let i = index;">
+      <!-- 月 -->
+      <div class="cell" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="defaultCellStyle">
+        {{month.month}}</div>
+      <!-- グリッド -->
+      <div class="cell" [ngClass]="{ 'january': month.month === '1'}" [ngStyle]="defaultCellStyle"></div>
+    </li>
+  </ul>
 </div>
