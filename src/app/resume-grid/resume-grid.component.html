@@ -17,8 +17,10 @@
       </div>
     </li>
   </ul>
-  <div *ngFor="let disp of displayResumes" class="resume-box absolute" [ngStyle]="disp.style"
-    [ngClass]="{'selected': disp.resume === selectedResume}" (mouseenter)="selectResume(disp.resume)">
-    <div>{{disp.title}}</div>
-  </div>
+  <ng-container *ngFor="let disp of displayResumes">
+    <div draggable class="resume-box absolute" [ngStyle]="disp.style" [ngClass]="{'selected': disp.resume === selectedResume}"
+      (mouseenter)="selectResume(disp.resume)" (dragstart)="dragstart($event, disp)" (dragover)="dragover($event)" (drop)="drop($event)">
+      <div>{{disp.title}}</div>
+    </div>
+  </ng-container>
 </div>

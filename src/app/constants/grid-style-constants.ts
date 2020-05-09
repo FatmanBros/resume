@@ -44,5 +44,5 @@ export class GridStyleConstants {
   /**
    * デフォルト開始位置 y
    */
-  public static defaultTop = GridStyleConstants.iconHeigh + GridStyleConstants.yearHeight + GridStyleConstants.monthHeight + 1;
+  public static defaultTop = GridStyleConstants.yearHeight + GridStyleConstants.monthHeight + 1;
 }

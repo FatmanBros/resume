@@ -1,14 +1,14 @@
 $transitionTime: 0.1s;
+$base-color: #555;
 
 .button-icon {
   cursor: pointer;
-  color: #000;
+  color: $base-color;
 
   transition: $transitionTime;
 }
 
 .button-icon:hover {
-  color: #555;
-
+  color: lighten($base-color, 20%);
   transition: $transitionTime;
 }

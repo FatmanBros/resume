@@ -200,4 +200,27 @@ export class ResumeGridComponent extends BaseComponent {
     // 選択中の履歴を反映
     this.selectedResume = resume;
   }
+
+  public dragging: any;
+  public sx: number;
+  /**
+   * ドラッグ開始
+   */
+  public dragstart(event, disp) {
+    this.sx = event.clientX;
+    this.dragging = disp;
+  }
+
+  public dragover(event) {
+    // 開始位置からの差分計算
+    let diff = event.clientX - this.sx;
+    // セル分のドラッグ検知
+    
+  }
+
+  public drop(event) {
+    // クリア
+    this.sx = null;
+    this.dragging = null;
+  }
 }

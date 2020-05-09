@@ -8,10 +8,14 @@ export class Resume {
     this.title = new FormControl("", [Validators.required]);
     this.summary = new FormControl("");
     this.details = new FormControl("");
+
     this.termFrom = new FormControl(new Date(), [Validators.required]);
     this.termFrom.value.setDate(1);
+
     this.termTo = new FormControl(DateUtility.addMonths(new Date(), 1), [Validators.required]);
     this.termTo.value.setDate(1);
+
+    this.position = new FormControl("");
     this.experiences = new Experiences();
   }
 
@@ -39,6 +43,11 @@ export class Resume {
    * 終了　年月<br>
    */
   public termTo: FormControl;
+
+  /**
+   * 担当
+   */
+  public position: FormControl;
 
   /**
    * 区分
