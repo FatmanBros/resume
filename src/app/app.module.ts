@@ -3,28 +3,30 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ResumeComponent } from './resume/resume.component';
-import { OutFrameComponent } from './common/out-frame/out-frame.component';
-import { HeaderComponent } from './common/header/header.component';
-import { MenuComponent } from './common/menu/menu.component';
-import { FooterComponent } from './common/footer/footer.component';
-import { IconComponent } from './control/icon/icon.component';
-import { IconButtonComponent } from './control/icon-button/icon-button.component';
-import { IconDropdownComponent } from './control/icon-dropdown/icon-dropdown.component';
-import { ResumeBoardComponent } from './resume-board/resume-board.component';
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ResumeGridComponent } from './resume-grid/resume-grid.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DateComponent } from './control/date/date.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { JPDateAdapter } from './adapter/jp-date-adapter';
-import { TextboxComponent } from './textbox/textbox.component';
-import { TextareaComponent } from './textarea/textarea.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ResumeBoardComponent } from './components/resume/resume-board/resume-board.component';
+import { OutFrameComponent } from './components/common/out-frame/out-frame.component';
+import { HeaderComponent } from './components/common/header/header.component';
+import { MenuComponent } from './components/common/menu/menu.component';
+import { FooterComponent } from './components/common/footer/footer.component';
+import { IconComponent } from './components/control/icon/icon.component';
+import { IconButtonComponent } from './components/control/icon-button/icon-button.component';
+import { IconDropdownComponent } from './components/control/icon-dropdown/icon-dropdown.component';
+import { ResumeGridComponent } from './components/resume/resume-grid/resume-grid.component';
+import { DateComponent } from './components/control/date/date.component';
+import { TextboxComponent } from './components/control/textbox/textbox.component';
+import { TextareaComponent } from './components/control/textarea/textarea.component';
+import { CustomCheckboxComponent } from './components/control/custom-checkbox/custom-checkbox.component';
+import { CustomRadioComponent } from './components/control/custom-radio/custom-radio.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     DateComponent,
     TextboxComponent,
     TextareaComponent,
+    CustomCheckboxComponent,
+    CustomRadioComponent,
   ],
   imports: [
     BrowserModule,

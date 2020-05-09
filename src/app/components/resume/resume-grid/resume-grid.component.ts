@@ -1,9 +1,9 @@
 import { Component, OnInit, Injector, Input, ElementRef } from '@angular/core';
-import { BaseComponent } from '../common/base/base.component';
-import { Resume } from '../model/resume';
-import { DateUtility } from '../utility/date-utility'
-import { ObjectUtility } from '../utility/object-utility';
-import { GridStyleConstants } from '../constants/grid-style-constants';
+import { BaseComponent } from '../../common/base/base.component';
+import { DateUtility } from 'src/app/utility/date-utility';
+import { Resume } from 'src/app/model/resume';
+import { GridStyleConstants } from 'src/app/constants/grid-style-constants'
+import { ObjectUtility } from 'src/app/utility/object-utility';
 
 @Component({
   selector: 'app-resume-grid',

@@ -1,0 +1,4 @@
+<ng-container *ngFor="let button of buttons; index as i">
+  <span class="radio-button" [ngClass]="{'active' : button === selected }"
+    [ngStyle]="{'background-color': button.color}" (click)="onClick(button)">{{button.label}}</span>
+</ng-container>

@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, OnDestroy, Injector } from '@angular/core';
-import { Resume } from '../model/resume';
-import { ResumeService } from '../service/resume.service';
+import { BaseComponent } from '../../common/base/base.component';
+import { Resume } from 'src/app/model/resume';
 import { Subscription } from 'rxjs';
-import { BaseComponent } from '../common/base/base.component';
 
 @Component({
   selector: 'app-resume-board',
