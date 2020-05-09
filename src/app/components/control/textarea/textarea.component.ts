@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injector } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NONE_TYPE } from '@angular/compiler';
+import { BaseControlComponent } from '../base-control.component';
 
 @Component({
   selector: 'app-textarea',
   templateUrl: './textarea.component.html',
   styleUrls: ['./textarea.component.scss']
 })
-export class TextareaComponent implements OnInit {
+export class TextareaComponent extends BaseControlComponent implements OnInit {
 
   @Input()
   public label: string;
@@ -36,7 +36,9 @@ export class TextareaComponent implements OnInit {
   public outFrameStyle: any;
   public style: any;
 
-  constructor() { }
+  constructor(injector: Injector) {
+    super(injector);
+  }
 
   ngOnInit(): void {
     this.outFrameStyle = {

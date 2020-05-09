@@ -1,12 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injector } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { BaseControlComponent } from '../base-control.component';
 
 @Component({
   selector: 'app-textbox',
   templateUrl: './textbox.component.html',
   styleUrls: ['./textbox.component.scss']
 })
-export class TextboxComponent implements OnInit {
+export class TextboxComponent extends BaseControlComponent implements OnInit {
 
   @Input()
   public label: string;
@@ -31,7 +32,9 @@ export class TextboxComponent implements OnInit {
 
   public style: any;
 
-  constructor() { }
+  constructor(injector: Injector) {
+    super(injector);
+  }
 
   ngOnInit(): void {
     this.style = {

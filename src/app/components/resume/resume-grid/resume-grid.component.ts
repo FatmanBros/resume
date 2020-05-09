@@ -17,14 +17,14 @@ export class ResumeGridComponent extends BaseComponent {
    * デフォルト 10年前
    */
   @Input()
-  public termFrom: Date = DateUtility.getSubYearDate(10);
+  public termFrom: Date;
 
   /**
    * 期間 To <br>
    * デフォルト 半年先
    */
   @Input()
-  public termTo: Date = DateUtility.addMonths(new Date(), 6);
+  public termTo: Date;
 
   /**
    * グリッドの開始位置
@@ -65,6 +65,9 @@ export class ResumeGridComponent extends BaseComponent {
   }
 
   ngOnInit(): void {
+    // 範囲取得
+    this.termFrom = this.resumeService.getTermFrom();
+    this.termTo = this.resumeService.getTermTo();
     // 年リスト作成
     this.setYear();
     // 月リスト作成
@@ -131,7 +134,7 @@ export class ResumeGridComponent extends BaseComponent {
     // 履歴を新規作成
     let newResume = new Resume();
     this.resumes.push(newResume);
-    
+
     // 選択中の履歴を反映
     this.selectResume(newResume);
 
@@ -165,7 +168,7 @@ export class ResumeGridComponent extends BaseComponent {
       res.style = Object.assign(res.style, { left: x + 'px' });
 
       // 幅を設定
-      let w = (DateUtility.monthDiff(resume.termTo.value, resume.termFrom.value) - 1) * this.styleConst.cellWidth - 2 + 'px';
+      let w = (DateUtility.monthDiff(resume.termTo.value, resume.termFrom.value)) * this.styleConst.cellWidth - 2 + 'px';
       res.style = Object.assign(res.style, {
         width: w,
         'min-width': w,
@@ -215,7 +218,7 @@ export class ResumeGridComponent extends BaseComponent {
     // 開始位置からの差分計算
     let diff = event.clientX - this.sx;
     // セル分のドラッグ検知
-    
+
   }
 
   public drop(event) {

@@ -1,5 +1,5 @@
 <mat-form-field [ngStyle]="style">
   <mat-label>{{label}}</mat-label>
   <input matInput [formControl]="control" [placeholder]="placeholder" name="value">
-  <mat-error *ngIf="control.hasError('required')">必須入力です。</mat-error>
+  <mat-error *ngIf="control.hasError('required')">{{messages.validation.required}}</mat-error>
 </mat-form-field>

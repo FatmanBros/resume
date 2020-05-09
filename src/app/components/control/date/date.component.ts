@@ -1,12 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Injector } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDatepicker } from '@angular/material/datepicker';
+import { BaseControlComponent } from '../base-control.component';
 
 @Component({
   selector: 'app-date',
   templateUrl: './date.component.html',
   styleUrls: ['./date.component.scss']
 })
-export class DateComponent implements OnInit {
+export class DateComponent extends BaseControlComponent implements OnInit {
+
+  @ViewChild('picker')
+  public picker: MatDatepicker<Date>;
 
   @Input()
   public control: FormControl;
@@ -14,13 +19,21 @@ export class DateComponent implements OnInit {
   @Input()
   public placeholder: string;
 
-  constructor() { }
+  @Input()
+  public min: Date;
+
+  @Input()
+  public max: Date;
+
+  constructor(injector: Injector) {
+    super(injector);
+  }
 
   ngOnInit(): void {
   }
 
-
-  public monthSelected(event) {
-    event
+  public monthSelected(date) {
+    this.picker.close();
+    this.control.setValue(date);
   }
 }

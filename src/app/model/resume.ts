@@ -1,10 +1,12 @@
 import { Experiences } from './experiences';
 import { DateUtility } from '../utility/date-utility';
 import { FormControl, Validators } from '@angular/forms';
+import { CustomValidators } from '../validators/custom-validators';
+import { ResumeService } from '../service/resume.service';
 
 export class Resume {
 
-  constructor() {
+  constructor(resumeService: ResumeService) {
     this.title = new FormControl("", [Validators.required]);
     this.summary = new FormControl("");
     this.details = new FormControl("");
@@ -12,7 +14,7 @@ export class Resume {
     this.termFrom = new FormControl(new Date(), [Validators.required]);
     this.termFrom.value.setDate(1);
 
-    this.termTo = new FormControl(DateUtility.addMonths(new Date(), 1), [Validators.required]);
+    this.termTo = new FormControl(DateUtility.addMonths(new Date(), 1), [Validators.required, CustomValidators.dateGreaterThan(this.termFrom)]);
     this.termTo.value.setDate(1);
 
     this.position = new FormControl("");
