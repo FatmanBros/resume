@@ -1,7 +1,12 @@
 <div *ngIf="resume" class="resume-frame flex-one flex-v">
-  <!-- 期間 -->
+  <div class="project">
+    <app-textbox [label]="'プロジェクト'" [value]="resume.title" [placeholder]="messages.tips.projectExample"></app-textbox>
+  </div>
+  <label>期間</label>
   <div class="term">
-    <span>参画期間：</span>
+    <app-date [date]="resume.termFrom" [placeholder]="'開始'"></app-date>
+    ～
+    <app-date [date]="resume.termTo" [placeholder]="'終了'"></app-date>
   </div>
   <div class="title">
     <input [(ngModel)]="resume.title" />
@@ -18,6 +23,6 @@
 <div *ngIf="resume">
 
 </div>
-<div *ngIf="!resume" class="not-selected">
+<label *ngIf="!resume" class="not-selected">
   NOT SELECTED RESUME !!
-</div>
+</label>

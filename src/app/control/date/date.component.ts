@@ -18,4 +18,8 @@ export class DateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  public monthSelected(event) {
+    event
+  }
 }

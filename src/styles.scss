@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* ツールチップ用css */
+/* angular material */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/** angular material custom */
+@import './app/css/mat-custom.scss';
 
 body {
   height: 100vh;

@@ -1,14 +1,15 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Injector } from '@angular/core';
 import { Resume } from '../model/resume';
 import { ResumeService } from '../service/resume.service';
 import { Subscription } from 'rxjs';
+import { BaseComponent } from '../common/base/base.component';
 
 @Component({
   selector: 'app-resume-board',
   templateUrl: './resume-board.component.html',
   styleUrls: ['./resume-board.component.scss']
 })
-export class ResumeBoardComponent implements OnInit, OnDestroy {
+export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDestroy {
 
   public resume: Resume;
 
@@ -19,8 +20,10 @@ export class ResumeBoardComponent implements OnInit, OnDestroy {
   protected subscription: Subscription[] = [];
 
   constructor(
-    private resumeService: ResumeService
-  ) { }
+    injector: Injector
+  ) {
+    super(injector)
+  }
 
   ngOnInit(): void {
     // 履歴の選択需要
@@ -30,7 +33,7 @@ export class ResumeBoardComponent implements OnInit, OnDestroy {
       })
     );
   }
-  
+
   ngOnDestroy(): void {
     // サブスクリプション開放
     this.subscription.forEach(val => {

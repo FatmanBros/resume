@@ -128,7 +128,14 @@ export class ResumeGridComponent extends BaseComponent {
    * 履歴を追加
    */
   public addResumeBoard($event) {
-    this.resumes.push(new Resume());
+    // 履歴を新規作成
+    let newResume = new Resume();
+    this.resumes.push(newResume);
+    
+    // 選択中の履歴を反映
+    this.selectResume(newResume);
+
+    // 表示位置を設定
     this.resetResumes();
   }
 
@@ -180,6 +187,7 @@ export class ResumeGridComponent extends BaseComponent {
 
 
   public selectedResume: Resume;
+
   /**
    * 履歴の選択
    * 
