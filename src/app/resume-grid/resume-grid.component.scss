@@ -9,6 +9,7 @@ $header-grid-style: solid 1px $border-color;
   text-align: center;
 }
 .year {
+  border-top: $header-grid-style !important;
   border-left: $header-grid-style !important;
 }
 .month:first-child {
@@ -17,8 +18,8 @@ $header-grid-style: solid 1px $border-color;
 .january {
   border-left: $header-grid-style !important;
 }
-.body {
-  min-height: 5rem;
+.body:first-child {
+  border-left: $header-grid-style !important;
 }
 
 $box-color: #ffbda9;

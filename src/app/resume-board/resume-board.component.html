@@ -1,26 +1,22 @@
 <div *ngIf="resume" class="resume-frame flex-one flex-v">
   <div class="project">
-    <app-textbox [label]="'プロジェクト'" [value]="resume.title" [placeholder]="messages.tips.projectExample"></app-textbox>
+    <app-textbox [label]="'プロジェクト'" [control]="resume.title" [placeholder]="messages.tips.projectExample"
+      [width_per]="100">
+    </app-textbox>
   </div>
-  <label>期間</label>
   <div class="term">
-    <app-date [date]="resume.termFrom" [placeholder]="'開始'"></app-date>
+    <app-date [control]="resume.termFrom" [placeholder]="'期間 開始'"></app-date>
     ～
-    <app-date [date]="resume.termTo" [placeholder]="'終了'"></app-date>
+    <app-date [control]="resume.termTo" [placeholder]="'終了'"></app-date>
   </div>
-  <div class="title">
-    <input [(ngModel)]="resume.title" />
+  <div class="summary flex-one">
+    <app-textarea [label]="'概要'" [control]="resume.summary" [width_per]="100" [max_height]="100"></app-textarea>
   </div>
-  <div class="flex-h">
-    <div>
+  <div class="position">
 
-    </div>
-    <div>
-
-    </div>
   </div>
 </div>
-<div *ngIf="resume">
+<div class="repletion-field" *ngIf="resume">
 
 </div>
 <label *ngIf="!resume" class="not-selected">

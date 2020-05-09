@@ -1,9 +1,5 @@
-$header-height: calc(100vh * 0.08);
-$footer-height: calc(100vh * 0.05);
-$menu-width: calc(100vw * 0.05);
-
+$header-height: 61px;
 $main-height: calc(100vh - #{$header-height});
-$main-width: calc(100vw - #{$menu-width});
 
 :host {
   display: flex;
@@ -17,7 +13,3 @@ $main-width: calc(100vw - #{$menu-width});
   max-height: $main-height;
 }
 
-.main-content {
-  width: $main-width;
-  max-width: $main-width;
-}

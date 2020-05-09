@@ -1,43 +1,44 @@
 import { Experiences } from './experiences';
 import { DateUtility } from '../utility/date-utility';
+import { FormControl, Validators } from '@angular/forms';
 
 export class Resume {
 
   constructor() {
-    this.title = "";
-    this.summary = "";
-    this.details = "";
-    this.termFrom = new Date();
-    this.termFrom.setDate(1);
-    this.termTo = DateUtility.addMonths(new Date(), 1);
-    this.termTo.setDate(1);
+    this.title = new FormControl("", [Validators.required]);
+    this.summary = new FormControl("");
+    this.details = new FormControl("");
+    this.termFrom = new FormControl(new Date(), [Validators.required]);
+    this.termFrom.value.setDate(1);
+    this.termTo = new FormControl(DateUtility.addMonths(new Date(), 1), [Validators.required]);
+    this.termTo.value.setDate(1);
     this.experiences = new Experiences();
   }
 
   /**
    * タイトル
    */
-  public title: string;
+  public title: FormControl;
 
   /**
    * 概要
    */
-  public summary: string;
+  public summary: FormControl;
 
   /**
    * 詳細
    */
-  public details: string;
+  public details: FormControl;
 
   /**
    * 開始　年月<br>
    */
-  public termFrom: Date;
+  public termFrom: FormControl;
 
   /**
    * 終了　年月<br>
    */
-  public termTo: Date;
+  public termTo: FormControl;
 
   /**
    * 区分

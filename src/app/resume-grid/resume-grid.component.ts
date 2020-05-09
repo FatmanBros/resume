@@ -154,10 +154,10 @@ export class ResumeGridComponent extends BaseComponent {
       // 開始位置を設定
       let x;
       this.months.forEach(month => {
-        if (month.year !== '' + resume.termFrom.getFullYear()) {
+        if (month.year !== '' + resume.termFrom.value.getFullYear()) {
           return;
         }
-        if (month.month !== resume.termFrom.getMonth() + 1 + '') {
+        if (month.month !== resume.termFrom.value.getMonth() + 1 + '') {
           return;
         }
         x = month.position;
@@ -165,7 +165,7 @@ export class ResumeGridComponent extends BaseComponent {
       res.style = Object.assign(res.style, { left: x + 'px' });
 
       // 幅を設定
-      let w = (DateUtility.monthDiff(resume.termTo, resume.termFrom) - 1) * this.styleConst.cellWidth - 2 + 'px';
+      let w = (DateUtility.monthDiff(resume.termTo.value, resume.termFrom.value) - 1) * this.styleConst.cellWidth - 2 + 'px';
       res.style = Object.assign(res.style, {
         width: w,
         'min-width': w,

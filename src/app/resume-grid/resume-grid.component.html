@@ -1,7 +1,7 @@
+<!-- 追加ボタン -->
+<app-icon-button [iconClass]="iconConstants.plus" (onClick)="addResumeBoard($event)" [tooltipText]="'追加'">
+</app-icon-button>
 <div class="grid overflow-x relative">
-  <!-- 追加ボタン -->
-  <app-icon-button [iconClass]="iconConstants.plus" (onClick)="addResumeBoard($event)" [tooltipText]="'追加'">
-  </app-icon-button>
   <!-- 年ヘッダ -->
   <ul class="flex-h">
     <li class="cell year" *ngFor="let year of years; let i = index;" [ngStyle]="year.style">{{year.year}}</li>

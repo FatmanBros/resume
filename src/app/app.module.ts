@@ -23,6 +23,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter } from '@angular/mate
 import { MatInputModule } from '@angular/material/input';
 import { JPDateAdapter } from './adapter/jp-date-adapter';
 import { TextboxComponent } from './textbox/textbox.component';
+import { TextareaComponent } from './textarea/textarea.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { TextboxComponent } from './textbox/textbox.component';
     ResumeGridComponent,
     DateComponent,
     TextboxComponent,
+    TextareaComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { TextboxComponent } from './textbox/textbox.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
