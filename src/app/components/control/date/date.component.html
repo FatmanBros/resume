@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>{{placeholder}}</mat-label>
-  <input matInput [max]="max" [min]="min" [formControl]="control" [matDatepicker]="picker" name="date">
+  <input matInput [max]="max" [min]="min" [formControl]="control" [matDatepicker]="picker" name="date" (dateChange)="change()">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker [startView]="'multi-year'" (monthSelected)="monthSelected($event)"></mat-datepicker>
   <mat-error *ngIf="control.hasError('required')">{{messages.validation.required}}</mat-error>

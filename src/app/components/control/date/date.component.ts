@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Injector } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Injector, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { BaseControlComponent } from '../base-control.component';
@@ -32,8 +32,24 @@ export class DateComponent extends BaseControlComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * 月変更で終了
+   * 
+   * @param date 
+   */
   public monthSelected(date) {
     this.picker.close();
     this.control.setValue(date);
+    this.change();
+  }
+
+  /**
+   * 変更イベント
+   */
+  @Output()
+  public onChange = new EventEmitter<null>();
+
+  public change() {
+    this.onChange.emit(null);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Injector } from '@angular/core';
+import { Component, OnInit, Input, Injector, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { BaseControlComponent } from '../base-control.component';
 
@@ -42,4 +42,13 @@ export class TextboxComponent extends BaseControlComponent implements OnInit {
     }
   }
 
+  /**
+   * 変更イベント
+   */
+  @Output()
+  public onChange = new EventEmitter<null>();
+  
+  public change() {
+    this.onChange.emit(null);
+  }
 }

@@ -26,9 +26,18 @@ $box-color: #ffbda9;
 .resume-box {
   cursor: grab;
   
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: rgba($color: $box-color, $alpha: 0.7);
-  border: solid 2px rgba($color: $box-color, $alpha: 0.2);;
+}
+.resume-box-left, .resume-box-right {
+  cursor: w-resize;
+
+  background-color: rgba(0, 0, 0, 0);
+  width: 3px;
+  height: 100%;
+}
+.resume-box-left {
+
 }
 
 .resume-box:active {

@@ -39,4 +39,11 @@ export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDes
       val.unsubscribe();
     })
   }
+
+  /**
+   * 変更検知
+   */
+  public onChange() {
+    this.resumeService.changeResume();
+  }
 }

@@ -4,6 +4,7 @@ import { DateUtility } from 'src/app/utility/date-utility';
 import { Resume } from 'src/app/model/resume';
 import { GridStyleConstants } from 'src/app/constants/grid-style-constants'
 import { ObjectUtility } from 'src/app/utility/object-utility';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-resume-grid',
@@ -50,6 +51,10 @@ export class ResumeGridComponent extends BaseComponent {
   // TODO: 履歴のサーバー取得処理
   public resumes: Resume[] = [];
 
+  /**
+   * 変更待受用
+   */
+  protected subscription: Subscription[] = [];
 
   /**
    * グリッドスタイル用定数
@@ -72,6 +77,21 @@ export class ResumeGridComponent extends BaseComponent {
     this.setYear();
     // 月リスト作成
     this.setTerm();
+
+    // 変更待受
+    // 履歴の選択需要
+    this.subscription.push(
+      this.resumeService.changeResume$.subscribe(() => {
+        this.resetResumes();
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    // サブスクリプション開放
+    this.subscription.forEach(val => {
+      val.unsubscribe();
+    })
   }
 
   ngAfterViewInit() {

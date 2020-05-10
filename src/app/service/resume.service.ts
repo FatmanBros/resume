@@ -33,4 +33,12 @@ export class ResumeService {
   public setResume(resume: Resume) {
     this.resume$.next(resume);
   }
+
+  /**
+   * 履歴変更検知用
+   */
+  public changeResume$ = new Subject<null>();
+  public changeResume() {
+    this.changeResume$.next();
+  }
 }

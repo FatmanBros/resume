@@ -2,11 +2,10 @@ import { Experiences } from './experiences';
 import { DateUtility } from '../utility/date-utility';
 import { FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from '../validators/custom-validators';
-import { ResumeService } from '../service/resume.service';
 
 export class Resume {
 
-  constructor(resumeService: ResumeService) {
+  constructor() {
     this.title = new FormControl("", [Validators.required]);
     this.summary = new FormControl("");
     this.details = new FormControl("");
