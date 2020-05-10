@@ -1,3 +1,4 @@
+<!-- 履歴情報 -->
 <div *ngIf="resume" class="resume-frame flex-one flex-v">
   <div class="project">
     <app-textbox [label]="'プロジェクト'" [control]="resume.title" [placeholder]="messages.tips.projectExample"
@@ -12,12 +13,17 @@
   <div class="summary flex-one">
     <app-textarea [label]="'概要'" [control]="resume.summary" [width_per]="100" [max_height]="100"></app-textarea>
   </div>
+  <!-- 担当・役職 -->
   <div class="position">
-
+    <app-textbox [label]="'担当・役職'" [control]="resume.position" [placeholder]="messages.tips.position"
+      [width_per]="50" (onChange)="onChange()"></app-textbox>
   </div>
 </div>
+<!-- 補足事項 -->
 <div class="repletion-field" *ngIf="resume">
-
+  <!-- 工程 -->
+  <!-- 言語 -->
+  <!-- ツール -->
 </div>
 <label *ngIf="!resume" class="not-selected">
   NOT SELECTED RESUME !!

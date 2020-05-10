@@ -39,6 +39,15 @@ $box-color: #ffbda9;
 .resume-box-left {
 
 }
+.resume-box-title {
+  white-space:nowrap;
+  margin-left: 0.5em;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  font-size: 0.8rem;
+  filter: drop-shadow(1px 1px 1px white);
+}
 
 .resume-box:active {
   cursor: grabbing;

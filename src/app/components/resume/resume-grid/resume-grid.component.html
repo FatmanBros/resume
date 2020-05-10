@@ -18,12 +18,12 @@
     </li>
   </ul>
   <ng-container *ngFor="let disp of displayResumes">
-      <div draggable class="resume-box absolute flex-h" [ngStyle]="disp.style"
-        [ngClass]="{'selected': disp.resume === selectedResume}" (mouseenter)="selectResume(disp.resume)"
-        (dragstart)="dragstart($event, disp)" (dragover)="dragover($event)" (drop)="drop($event)">
-        <div draggable class="resume-box-left"></div>
-        <div class="flex-one">{{disp.resume.title.value}}</div>
-        <div draggable class="resume-box-right"></div>
-      </div>
+    <div draggable class="resume-box absolute flex-h" [ngStyle]="disp.style"
+      [ngClass]="{'selected': disp.resume === selectedResume}" (mouseenter)="selectResume(disp.resume)"
+      (dragstart)="dragstart($event, disp)" (dragover)="dragover($event)" (drop)="drop($event)">
+      <div draggable class="resume-box-left"></div>
+      <div class="resume-box-title">{{disp.resume.title.value}}</div>
+      <div draggable class="resume-box-right"></div>
+    </div>
   </ng-container>
 </div>
