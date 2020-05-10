@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnDestroy, Injector } from '@angular/core';
 import { BaseComponent } from '../../common/base/base.component';
 import { Resume } from 'src/app/model/resume';
 import { Subscription } from 'rxjs';
+import { ListItem } from 'src/app/model/list-item';
 
 @Component({
   selector: 'app-resume-board',
@@ -18,19 +19,27 @@ export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDes
    */
   protected subscription: Subscription[] = [];
 
+  /**
+   * 工程用リストアイテム
+   */
+  public codeList: { [key: string]: ListItem[] };
+
   constructor(
     injector: Injector
   ) {
     super(injector)
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     // 履歴の選択需要
     this.subscription.push(
       this.resumeService.resume$.subscribe(resume => {
         this.resume = resume;
       })
     );
+
+    // 各種リストアイテムの取得
+    this.getListItems();
   }
 
   ngOnDestroy(): void {
@@ -38,6 +47,15 @@ export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDes
     this.subscription.forEach(val => {
       val.unsubscribe();
     })
+  }
+
+  /**
+   * リストアイテム5
+   */
+  public getListItems() {
+    this.codeService.getCode().subscribe(res => {
+      this.codeList = res;
+    });
   }
 
   /**

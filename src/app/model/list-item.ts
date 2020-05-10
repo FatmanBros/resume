@@ -13,10 +13,10 @@ export class ListItem {
   /**
    * 色
    */
-  public color: string;
+  public color?: string;
 
   /**
-   * 有効/無効
+   * オプション
    */
-  public isActive: boolean = false;
+  public option?: any;
 }

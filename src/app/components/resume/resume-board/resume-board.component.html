@@ -15,15 +15,24 @@
   </div>
   <!-- 担当・役職 -->
   <div class="position">
-    <app-textbox [label]="'担当・役職'" [control]="resume.position" [placeholder]="messages.tips.position"
-      [width_per]="50" (onChange)="onChange()"></app-textbox>
+    <app-textbox [label]="'担当・役職'" [control]="resume.position" [placeholder]="messages.tips.position" [width_per]="50"
+      (onChange)="onChange()"></app-textbox>
   </div>
 </div>
 <!-- 補足事項 -->
 <div class="repletion-field" *ngIf="resume">
+  <!-- プロジェクト -->
+  <app-custom-checkbox [label]="'プロジェクト'" [listItem]="codeList.project" [control]="resume.experiences.project">
+  </app-custom-checkbox>
   <!-- 工程 -->
+  <app-custom-checkbox [label]="'工程'" [listItem]="codeList.process" [control]="resume.experiences.processes">
+  </app-custom-checkbox>
   <!-- 言語 -->
+  <app-custom-checkbox [label]="'言語'" [listItem]="codeList.language" [control]="resume.experiences.langages">
+  </app-custom-checkbox>
   <!-- ツール -->
+  <app-custom-checkbox [label]="'ツール'" [listItem]="codeList.tool" [control]="resume.experiences.tools">
+  </app-custom-checkbox>
 </div>
 <label *ngIf="!resume" class="not-selected">
   NOT SELECTED RESUME !!

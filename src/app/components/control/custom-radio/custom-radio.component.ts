@@ -14,7 +14,7 @@ export class CustomRadioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.buttons[0].isActive = true;
+    
   }
 
   public selected: ListItem;

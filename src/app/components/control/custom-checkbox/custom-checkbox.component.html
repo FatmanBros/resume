@@ -1,4 +1,7 @@
-<ng-container *ngFor="let button of buttons; index as i">
-  <span class="radio-button" [ngClass]="{'active' : button.isActive }"
-    [ngStyle]="{'background-color': button.color}" (click)="onClick(button)">{{button.label}}</span>
-</ng-container>
+<mat-form-field class="checkbox-frame">
+  <mat-label>{{label}}</mat-label>
+  <div class="wrap">
+    <span *ngFor="let button of listItem; index as i" class="checkbox" [ngStyle]="{'background-color': button.color}"
+      (click)="onClick(button)">{{button.label}}</span>
+  </div>
+</mat-form-field>

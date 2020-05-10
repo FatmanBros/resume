@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ListItem } from 'src/app/model/list-item';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-checkbox',
@@ -9,7 +10,13 @@ import { ListItem } from 'src/app/model/list-item';
 export class CustomCheckboxComponent implements OnInit {
 
   @Input()
-  public buttons: ListItem[] = [];
+  public label: string;
+    
+  @Input()
+  public listItem: ListItem[] = [];
+
+  @Input()
+  public control: FormControl;
 
   constructor() { }
 
@@ -17,6 +24,6 @@ export class CustomCheckboxComponent implements OnInit {
   }
 
   public onClick(button: ListItem) {
-    button.isActive = !button.isActive;
+    
   }
 }
