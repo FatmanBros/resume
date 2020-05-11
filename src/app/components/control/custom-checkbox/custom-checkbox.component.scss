@@ -1,20 +1,12 @@
 .checkbox-frame {
   width: 100%;
+  font-size: 0.65rem;
 }
 
-$transTime: 0.3s;
-.checkbox {
-  cursor: pointer;
-  margin: auto;
- 
-  opacity: 0.5;
-  transition: $transTime;
-
-  filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+input {
+  margin-top: 2em !important;
 }
 
-.checkbox.active {
-  opacity: 1;
-  transition: $transTime;
-  filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3));
+.chip {
+  font-size: 1em;
 }

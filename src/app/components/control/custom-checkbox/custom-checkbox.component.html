@@ -1,7 +1,9 @@
 <mat-form-field class="checkbox-frame">
   <mat-label>{{label}}</mat-label>
-  <div class="wrap">
-    <span *ngFor="let button of listItem; index as i" class="checkbox" [ngStyle]="{'background-color': button.color}"
-      (click)="onClick(button)">{{button.label}}</span>
-  </div>
+  <mat-chip-list #chipList [selectable]="true">
+    <mat-chip class="chip" *ngFor="let chip of listItem" [selected]="chip.isSelected" (click)="select(chip)">{{chip.label}}
+    </mat-chip>
+  </mat-chip-list>
+  <input [placeholder]="'その他'" [matChipInputFor]="chipList" [matChipInputAddOnBlur]="true"
+    (matChipInputTokenEnd)="add($event)">
 </mat-form-field>

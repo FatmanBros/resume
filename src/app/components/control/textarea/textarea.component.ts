@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Injector } from '@angular/core';
+import { Component, OnInit, Input, Injector, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { BaseControlComponent } from '../base-control.component';
 
 @Component({
   selector: 'app-textarea',
   templateUrl: './textarea.component.html',
-  styleUrls: ['./textarea.component.scss']
+  styleUrls: ['./textarea.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextareaComponent extends BaseControlComponent implements OnInit {
 

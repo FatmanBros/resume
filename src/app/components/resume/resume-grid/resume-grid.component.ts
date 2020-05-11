@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Injector, Input, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { BaseComponent } from '../../common/base/base.component';
 import { DateUtility } from 'src/app/utility/date-utility';
 import { Resume } from 'src/app/model/resume';
@@ -9,7 +9,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-resume-grid',
   templateUrl: './resume-grid.component.html',
-  styleUrls: ['./resume-grid.component.scss']
+  styleUrls: ['./resume-grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResumeGridComponent extends BaseComponent {
 

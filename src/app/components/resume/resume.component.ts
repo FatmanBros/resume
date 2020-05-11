@@ -1,10 +1,11 @@
-import { Component, Injector } from '@angular/core';
+import { Component, Injector, ChangeDetectionStrategy } from '@angular/core';
 import { BaseComponent } from '../common/base/base.component';
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.scss']
+  styleUrls: ['./resume.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResumeComponent extends BaseComponent {
 

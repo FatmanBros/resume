@@ -19,4 +19,9 @@ export class ListItem {
    * オプション
    */
   public option?: any;
+
+  /**
+   * 選択状態
+   */
+  public isSelected?: boolean = false;
 }

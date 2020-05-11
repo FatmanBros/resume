@@ -1,13 +1,14 @@
-import { Component, OnInit, Input, OnDestroy, Injector } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Injector, ChangeDetectionStrategy } from '@angular/core';
 import { BaseComponent } from '../../common/base/base.component';
 import { Resume } from 'src/app/model/resume';
 import { Subscription } from 'rxjs';
-import { ListItem } from 'src/app/model/list-item';
+import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-resume-board',
   templateUrl: './resume-board.component.html',
-  styleUrls: ['./resume-board.component.scss']
+  styleUrls: ['./resume-board.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDestroy {
 
@@ -20,12 +21,18 @@ export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDes
   protected subscription: Subscription[] = [];
 
   /**
+   * 付属情報
+   */
+  public experiences: FormGroup;
+
+  /**
    * 工程用リストアイテム
    */
-  public codeList: { [key: string]: ListItem[] };
+  public codeList: any;
 
   constructor(
-    injector: Injector
+    injector: Injector,
+    private formBuilder: FormBuilder,
   ) {
     super(injector)
   }
@@ -54,7 +61,12 @@ export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDes
    */
   public getListItems() {
     this.codeService.getCode().subscribe(res => {
-      this.codeList = res;
+      this.codeList = Object.keys(res).map(key => {
+        return { key: key, value: res[key] }
+      });
+      Object.keys(res).forEach(key => {
+        this.experiences.addControl(key, new FormControl([]))
+      })
     });
   }
 

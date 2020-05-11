@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ListItem } from 'src/app/model/list-item';
 
 @Component({
   selector: 'app-custom-radio',
   templateUrl: './custom-radio.component.html',
-  styleUrls: ['./custom-radio.component.scss']
+  styleUrls: ['./custom-radio.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomRadioComponent implements OnInit {
 

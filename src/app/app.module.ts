@@ -27,6 +27,7 @@ import { TextboxComponent } from './components/control/textbox/textbox.component
 import { TextareaComponent } from './components/control/textarea/textarea.component';
 import { CustomCheckboxComponent } from './components/control/custom-checkbox/custom-checkbox.component';
 import { CustomRadioComponent } from './components/control/custom-radio/custom-radio.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { CustomRadioComponent } from './components/control/custom-radio/custom-r
     MatDatepickerModule,
     MatInputModule,
     HttpClientModule,
+    MatChipsModule,
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },

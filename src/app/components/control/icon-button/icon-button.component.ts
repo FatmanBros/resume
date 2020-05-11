@@ -1,10 +1,11 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'app-icon-button',
   templateUrl: './icon-button.component.html',
-  styleUrls: ['./icon-button.component.scss']
+  styleUrls: ['./icon-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IconButtonComponent extends IconComponent {
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Injector, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Injector, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { BaseControlComponent } from '../base-control.component';
@@ -6,7 +6,8 @@ import { BaseControlComponent } from '../base-control.component';
 @Component({
   selector: 'app-date',
   templateUrl: './date.component.html',
-  styleUrls: ['./date.component.scss']
+  styleUrls: ['./date.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DateComponent extends BaseControlComponent implements OnInit {
 

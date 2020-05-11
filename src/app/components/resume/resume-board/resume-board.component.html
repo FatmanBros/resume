@@ -21,18 +21,17 @@
 </div>
 <!-- 補足事項 -->
 <div class="repletion-field" *ngIf="resume">
-  <!-- プロジェクト -->
-  <app-custom-checkbox [label]="'プロジェクト'" [listItem]="codeList.project" [control]="resume.experiences.project">
+  <app-custom-checkbox *ngFor="let code of codeList" [label]="code.value.label" [listItem]="code.value.listItem" [control]="this.experiences.get(code.key)"></app-custom-checkbox>
+  <!-- <app-custom-checkbox [label]="'プロジェクト'" [listItem]="codeList.project" [control]="resume.experiences.project">
   </app-custom-checkbox>
-  <!-- 工程 -->
+  <app-custom-checkbox [label]="'担当'" [listItem]="codeList.process" [control]="resume.experiences.processes">
+  </app-custom-checkbox>
   <app-custom-checkbox [label]="'工程'" [listItem]="codeList.process" [control]="resume.experiences.processes">
   </app-custom-checkbox>
-  <!-- 言語 -->
   <app-custom-checkbox [label]="'言語'" [listItem]="codeList.language" [control]="resume.experiences.langages">
   </app-custom-checkbox>
-  <!-- ツール -->
   <app-custom-checkbox [label]="'ツール'" [listItem]="codeList.tool" [control]="resume.experiences.tools">
-  </app-custom-checkbox>
+  </app-custom-checkbox> -->
 </div>
 <label *ngIf="!resume" class="not-selected">
   NOT SELECTED RESUME !!

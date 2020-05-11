@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Injector, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, Injector, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { BaseControlComponent } from '../base-control.component';
 
 @Component({
   selector: 'app-textbox',
   templateUrl: './textbox.component.html',
-  styleUrls: ['./textbox.component.scss']
+  styleUrls: ['./textbox.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextboxComponent extends BaseControlComponent implements OnInit {
 
