@@ -42,6 +42,7 @@ export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDes
     this.subscription.push(
       this.resumeService.resume$.subscribe(resume => {
         this.resume = resume;
+        this.detector.detectChanges();
       })
     );
 
@@ -60,6 +61,7 @@ export class ResumeBoardComponent extends BaseComponent implements OnInit, OnDes
    * リストアイテム5
    */
   public getListItems() {
+    this.experiences = this.formBuilder.group({});
     this.codeService.getCode().subscribe(res => {
       this.codeList = Object.keys(res).map(key => {
         return { key: key, value: res[key] }

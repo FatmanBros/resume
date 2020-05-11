@@ -84,6 +84,7 @@ export class ResumeGridComponent extends BaseComponent {
     this.subscription.push(
       this.resumeService.changeResume$.subscribe(() => {
         this.resetResumes();
+        this.detector.markForCheck();
       })
     );
   }

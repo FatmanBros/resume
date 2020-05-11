@@ -22,6 +22,9 @@ export class CodeService extends BaseService {
    */
   public getCode(): Observable<any> {
     return of({
+      position: {
+        
+      },
       project: {
         label: "プロジェクト",
         listItem: [
