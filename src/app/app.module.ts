@@ -28,6 +28,8 @@ import { TextareaComponent } from './components/control/textarea/textarea.compon
 import { CustomCheckboxComponent } from './components/control/custom-checkbox/custom-checkbox.component';
 import { CustomRadioComponent } from './components/control/custom-radio/custom-radio.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -51,15 +53,17 @@ import { MatChipsModule } from '@angular/material/chips';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatTooltipModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    MatTooltipModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
-    HttpClientModule,
     MatChipsModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },

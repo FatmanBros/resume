@@ -23,7 +23,13 @@ export class CodeService extends BaseService {
   public getCode(): Observable<any> {
     return of({
       position: {
-        
+        label: "担当",
+        listItem: [
+          { label: "SE", value: "SE" },
+          { label: "PG", value: "PG" },
+          { label: "PM", value: "PM" },
+          { label: "MG", value: "MG" },
+        ],
       },
       project: {
         label: "プロジェクト",

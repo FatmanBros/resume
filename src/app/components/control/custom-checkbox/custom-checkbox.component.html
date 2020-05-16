@@ -1,8 +1,10 @@
 <mat-form-field class="checkbox-frame">
   <mat-label>{{label}}</mat-label>
   <mat-chip-list #chipList [multiple]="true" [selectable]="true">
-    <mat-chip class="chip" *ngFor="let chip of listItem" [selected]="chip.isSelected"
-      (click)="select(chip)">{{chip.label}}
+    <mat-chip class="chip" *ngFor="let chip of listItem" [selected]="chip.isSelected" (click)="select(chip)"
+      [removable]="chip.isAdded" (removed)="remove(chip)">
+      {{chip.label}}
+      <mat-icon matChipRemove fontSet="far" fontIcon="fa-times-circle" *ngIf="chip.isAdded">✕</mat-icon>
     </mat-chip>
   </mat-chip-list>
   <input [placeholder]="'その他'" [matChipInputFor]="chipList" [matChipInputAddOnBlur]="true"

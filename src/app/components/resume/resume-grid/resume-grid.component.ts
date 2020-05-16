@@ -168,6 +168,8 @@ export class ResumeGridComponent extends BaseComponent {
    * 履歴のグリッド表示位置を設定
    */
   public resetResumes() {
+    let start = new Date();
+
     this.displayResumes = [];
     this.resumes.forEach(resume => {
       // 側作成
@@ -208,6 +210,8 @@ export class ResumeGridComponent extends BaseComponent {
 
       this.displayResumes.push(res);
     })
+
+    console.log(`reset resume: ${new Date().getTime() - start.getTime()}ms`);
   }
 
 

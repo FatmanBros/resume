@@ -24,4 +24,9 @@ export class ListItem {
    * 選択状態
    */
   public isSelected?: boolean = false;
+
+  /**
+   * 追加項目
+   */
+  public isAdded?: boolean;
 }
