@@ -26,6 +26,11 @@ export class CustomCheckboxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * チェックボックス選択
+   * 
+   * @param chip 
+   */
   public select(chip) {
     // トグル
     chip.isSelected = !chip.isSelected;

@@ -9,4 +9,9 @@ input {
 
 .chip {
   font-size: 1em;
+  cursor: pointer;
+}
+
+.chip.selected {
+  background-color: plum;
 }
